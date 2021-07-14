@@ -1,0 +1,15 @@
+Index: plot csv.py
+===================================================================
+diff --git a/plot csv.py b/plot csv.py
+deleted file mode 100644
+--- a/plot csv.py	(revision 150b4cc981428a28eacf00adf2a7e87708b00dfd)
++++ /dev/null	(revision 150b4cc981428a28eacf00adf2a7e87708b00dfd)
+@@ -1,8 +0,0 @@
+-# -*- coding:utf-8 -*-
+-# 作者 ： yangxinsheng
+-# 时间 ： 2021/3/7 3:54 下午
+-# 文件 ： plot csv.py
+-# 环境 ： PyCharm
+-
+-
+-import csv
