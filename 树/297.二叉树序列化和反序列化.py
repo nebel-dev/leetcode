@@ -36,12 +36,6 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 """
 
-data = "1,2,null,null,3,4,null,null,5,null,null"  # 前序遍历
-data2 = "null,null,2,null,null,4,null,null,5,3,1"  # 后序遍历
-data3 = ""
-data4 = "null,null,1"
-data5 = "1,2,3,null,null,4,5,null,null,null,null"  # 层序遍历
-
 
 # Definition for a binary tree node.
 class TreeNode(object):
@@ -59,7 +53,6 @@ class Codec:
                 return 'null,'
             left = dfs(root.left)
             right = dfs(root.right)
-
             return str(root.val) + ',' + left + right
         if not root:
             return ""
@@ -134,6 +127,8 @@ from collections import deque
 
 class Codec4:
     def serialize(self, root):
+        if not root:
+            return ''
         res = ""
         queue = deque([root])
         while queue:
@@ -189,19 +184,25 @@ class Codec5:
 
 
 if __name__ == '__main__':
+    data = "1,2,null,null,3,4,null,null,5,null,null"  # 前序遍历
+    data2 = "null,null,2,null,null,4,null,null,5,3,1"  # 后序遍历
+    data3 = ""
+    data4 = "null,null,1"
+    data5 = "1,2,3,null,null,4,5,null,null,null,null"  # 层序遍历
+
     '前序遍历'
     ser = Codec()
     deser = Codec()
     # ans = ser.serialize(deser.deserialize(data))
     # print('ans :', ans)
-    # ans2 = deser.deserialize(ser.serialize(deser.deserialize(data)))
+    # ans2 = deser.deserialize(ans)
 
     '后序遍历'
     ser2 = Codec2()
     deser2 = Codec2()
     # ans = ser2.serialize(deser2.deserialize(data4))
     # print('ans :', ans)
-    # ans2 = deser2.deserialize(ser2.serialize(deser2.deserialize(data2)))
+    # ans2 = deser2.deserialize(ans)
 
     '中序遍历'
     ser3 = Codec3()
