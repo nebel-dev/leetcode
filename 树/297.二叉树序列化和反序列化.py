@@ -153,8 +153,9 @@ class Codec4:
         if dataList[-1] == '':
             dataList = dataList[:-1]
         print(dataList)
-        root = TreeNode(int(    dataList.pop(0)))
-        # queue = [root]
+        root = TreeNode(int(dataList.pop(0)))
+        # queue = deque()
+        # queue.append(root)
         queue = deque([root])
         while queue:
             node = queue.popleft()
