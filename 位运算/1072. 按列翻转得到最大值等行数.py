@@ -55,6 +55,8 @@ class Solution:
                     mode += ('0' if c == 1 else '1')
             mode_freq[mode] += 1
         return max(mode_freq.values())
+
+
 solution = Solution()
 r1 = solution.maxEqualRowsAfterFlips(arr3)
 
