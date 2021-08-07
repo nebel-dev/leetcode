@@ -53,6 +53,7 @@ class Solution:
             res = float('INF')
             for coin in coins:
                 subproblem = dp(n - coin)
+                # 子问题无解，跳过
                 if subproblem == -1:
                     continue
                 res = min(res, 1 + subproblem)
@@ -86,12 +87,23 @@ class Solution:
     # 使用DP数组
     # 时间复杂度：O(n)
     def coinChange_dp_array(self, coins: List[int], amount: int) -> int:
+        dp_array = [float('inf')] * (amount + 1)
+        dp_array[0] = 0
+        # for i in range(1, amount+1):
+        #     for coin in coins:
+        #         if i - coin < 0:
+        #             continue
+        #         dp_array[i] = min(dp_array[i], 1 + dp_array[i - coin])
+        # for循环的另一种写法
+        for coin in coins:
+            for i in range(coin, amount + 1):
+                dp_array[i] = min(dp_array[i], 1 + dp_array[i - coin])
+        return dp_array[amount] if dp_array[amount] != float('inf') else -1
 
-        return
 
 if __name__ == "__main__":
     coins = [1, 2, 5]
     solution = Solution()
     print(solution.coinChange(coins, 11))
-
-    print(solution.coinChange_memo(coins, -1))
+    print(solution.coinChange_memo(coins, 11))
+    print(solution.coinChange_dp_array(coins, 99))
