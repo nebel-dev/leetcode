@@ -55,6 +55,8 @@ class Solution:
             return memo[i][j]
         return dp(text1, 0, text2, 0)
 
+    # 时间复杂度：O(mn)
+    # 空间复杂度：O(mn)
     def longestCommonSubsequence_iter(self, text1: str, text2: str) -> int:
         m, n = len(text1), len(text2)
         dp = [[0] * (n+1) for i in range(m+1)]
